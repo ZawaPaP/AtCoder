@@ -44,3 +44,18 @@ for mask in range(1 << N):
     min_max_value = min(min_max_value, max_value)
 
 print(min_max_value) """
+
+min_max_value = float('inf')
+
+for mask in range(1 << N):
+    group_A = 0
+    group_B = 0
+    for i in range(N):
+        if mask & (1 << i):
+            group_A += K[i]
+        else:
+            group_B += K[i]
+    max_value =  max(group_A, group_B)
+    min_max_value = min( max_value, min_max_value)
+    
+
