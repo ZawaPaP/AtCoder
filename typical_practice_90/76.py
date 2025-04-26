@@ -17,12 +17,10 @@ left = 0
 right = 0
 current_sum = 0
 
-# N個の要素がある場合、最大2N-1
 while right < 2 * N:
     current_sum += A_extended[right]
     right += 1
 
-    # 合計が期待値を超えたら、左側を縮める
     while current_sum > expected and left < right:
         current_sum -= A_extended[left]
         left += 1
