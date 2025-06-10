@@ -47,5 +47,7 @@
     "forward_list": "cpp",
     "__bit_reference": "cpp",
     "generator": "cpp"
-  }
+  },
+  "python.analysis.typeCheckingMode": "basic",
+  "python.analysis.autoImportCompletions": true
 }
