@@ -26,6 +26,6 @@ for i in range(len(S) - 1, 0, -1):
             alphabets[ord(S[j]) - ord("a")] = True
 
         for j in range(26):
-            if not alphabets[j]:
+            if not alphabets[j] and chr(j + ord("a")) > S[i - 1]:
                 print(S[:i - 1] + chr(j + ord("a")))
                 exit()
