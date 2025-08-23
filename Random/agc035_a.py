@@ -2,20 +2,34 @@ N = int(input())
 
 A = list(map(int, input().split()))
 
-circle_A = A.copy()
-circle_A.insert(0, A[-1])
-circle_A.append(A[0])
+caps = {}
+for a in A:
+    caps[a] = caps.get(a, 0) + 1
 
+if len(caps) == 1 and 0 in caps:
+    print("Yes")
+    exit()
 
-print(circle_A)
-for i in range(1, N):
-    prev = circle_A[i - 1]
-    next = circle_A[i + 1]
-
-    if prev ^ next == circle_A[i]:
-        continue
+if len(caps) == 2:
+    if 0 in caps and caps[0] == N / 3:
+        print("Yes")
+        exit()
     else:
         print("No")
         exit()
 
-print("Yes")
+if len(caps) == 3:
+    xor = 0
+    for k, v in caps.items():
+        xor ^= k
+        if v != N / 3:
+            print("No")
+            exit()
+
+    if xor == 0:
+        print("Yes")
+        exit()
+    else:
+        print("No")
+        exit()
+print("No")

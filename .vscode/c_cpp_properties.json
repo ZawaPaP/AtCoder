@@ -1,20 +1,18 @@
 {
   "configurations": [
     {
-      "name": "Mac",
+      "name": "macos-clang-arm64",
       "includePath": [
-        "${workspaceFolder}/**",
-        "/opt/homebrew/Cellar/gcc/**",
-        "/opt/homebrew/opt/gcc/**"
+        "${workspaceFolder}/**"
       ],
       "defines": [],
       "macFrameworkPath": [
         "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks"
       ],
-      "compilerPath": "/opt/homebrew/bin/gcc",
-      "cStandard": "c17",
-      "cppStandard": "c++17",
-      "intelliSenseMode": "macos-gcc-arm64"
+      "compilerPath": "/usr/bin/clang",
+      "cStandard": "${default}",
+      "cppStandard": "${default}",
+      "intelliSenseMode": "macos-clang-arm64"
     }
   ],
   "version": 4
