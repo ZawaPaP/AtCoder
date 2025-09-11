@@ -3,22 +3,18 @@ N = int(input())
 robots = []
 for _ in range(N):
     x, l = map(int, input().split())
-    robots.append((x, l))
+    s = x - l
+    e = x + l
+    robots.append((s, e))
 
-robots.sort(key=lambda x: x[0])
+robots.sort(key=lambda x: x[1])
 
 ans = [True] * N
-for i in range(len(robots) - 1):
-    if ans[i] == False:
-        continue
-    p, arm = robots[i]
-    # 左が右を内包しているケース
-    if p + arm > robots[i + 1][0] + robots[i + 1][1]:
-        ans[i] = False
-    # 重なっているケース or 内包されているケース
-    elif p + arm > robots[i + 1][0] - robots[i + 1][1]:
-        ans[i + 1] = False
+prev = float("-inf")
+for i in range(len(robots)):
+    if prev <= robots[i][0]:
+        prev = robots[i][1]
     else:
-        continue
+        ans[i] = False
 
 print(ans.count(True))
