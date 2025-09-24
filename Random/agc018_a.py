@@ -13,12 +13,13 @@ if A[-1] < K:
     exit()
 
 # Aの要素2つの差を集める
-A_diffs = []
+A_diffs = set()
 for i in range(1, N):
-    A_diffs.append(A[i] - A[i - 1])
+    diff = A[i] - A[i - 1]
+    A_diffs.add(diff)
 
 for diff in A_diffs:
-    if K % diff == 0:
+    if diff > 0 and K % diff == 0:  # diffが0でないことを確認
         print('POSSIBLE')
         exit()
 print('IMPOSSIBLE')
